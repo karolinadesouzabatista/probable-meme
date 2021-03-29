@@ -1,0 +1,165 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int N = 10;
+
+typedef struct
+{
+    char MARCA_SMART[10];
+    char COR_SMART [10];
+    int CODIGO_SMART;
+    float PRECO_SMART;
+    int UNIDADES_SMART;
+} TIPO_SMART;
+
+
+void view(TIPO_SMART aux[]){
+    N = 10;
+  for(int i=0;i<N;i++){
+    printf("\nPOSICAO %d",i);
+    printf("\nMARCA: %s",aux[i].MARCA_SMART);
+    printf("\nCOR: %s",aux[i].COR_SMART);
+    printf("\nCODIGO: %d",aux[i].CODIGO_SMART);
+    printf("\nPRECO: %.2f",aux[i].PRECO_SMART);
+    printf("\nUNIDADE: %d",aux[i].UNIDADES_SMART);
+    printf("\n\n");
+  }
+}
+int alterar(TIPO_SMART aux[]){
+    int Num_Escolhido, N = 10;
+    int Atributo_Escolhido;
+    for(int i = 0; i < N; i++){
+            view(aux);
+            printf ("Digite a posicao a ter seu dado alterado: ");
+            scanf("%d", &Num_Escolhido);
+                printf("\nAlterando os dados do smartphone %d\n", Num_Escolhido);
+                printf("\tCodigo:%d\n\tMarca:%s\n\tCor: %s\n\tQuantidade %d\n\tPreco: R$%2.f\n", aux[Num_Escolhido].CODIGO_SMART, aux[Num_Escolhido].MARCA_SMART, aux[Num_Escolhido].COR_SMART, aux[Num_Escolhido].UNIDADES_SMART, aux[Num_Escolhido].PRECO_SMART);
+                printf ("\n\n\n");
+                printf("Qual informacao voce deseja alterar?\nDigite:\n1 para Marca\n2 para Cor\n3 para Unidades disponiveis\n4 para Preco.\n");
+                scanf("%d", &Atributo_Escolhido);
+
+
+                switch(Atributo_Escolhido){
+
+                    case 1:{
+
+                        printf("Digite a nova Marca:");
+                        scanf(" %s", aux[Num_Escolhido].MARCA_SMART);
+                        continue;
+                    }
+                    case 2:{
+
+                        printf("Alterando a Cor:");
+                        scanf(" %s", aux[Num_Escolhido].COR_SMART);
+                        continue;
+                    }
+                    case 3:{
+
+
+
+                        printf("Alterando a Quantidade disponivel:");
+                        scanf("%d", &aux[Num_Escolhido].UNIDADES_SMART);
+                        continue;
+                    }
+                    case 4:{
+                        printf("Alterando o preco:");
+                        scanf("%f", &aux[Num_Escolhido].PRECO_SMART);
+                        break;
+                    }
+
+                    }
+                }
+}
+
+int main() {
+  TIPO_SMART aux[N];
+  int Num_Escolhido;
+
+  strcpy(aux[0].MARCA_SMART, "Samsung");
+  strcpy(aux[1].MARCA_SMART, "Asus");
+  strcpy(aux[2].MARCA_SMART, "Apple");
+  strcpy(aux[3].MARCA_SMART, "Hwawei");
+  strcpy(aux[4].MARCA_SMART, "Positivo");
+  strcpy(aux[5].MARCA_SMART, "Alcatel");
+  strcpy(aux[6].MARCA_SMART, "Xiaomi");
+  strcpy(aux[7].MARCA_SMART, "ZTE");
+  strcpy(aux[8].MARCA_SMART, "Dell");
+  strcpy(aux[9].MARCA_SMART, "Nokia");
+
+  strcpy(aux[0].COR_SMART, "Vermelho");
+  strcpy(aux[1].COR_SMART, "Roxo");
+  strcpy(aux[2].COR_SMART, "Azul");
+  strcpy(aux[3].COR_SMART, "Rosa");
+  strcpy(aux[4].COR_SMART, "Dourado");
+  strcpy(aux[5].COR_SMART, "Branco");
+  strcpy(aux[6].COR_SMART, "Preto");
+  strcpy(aux[7].COR_SMART, "Verde");
+  strcpy(aux[8].COR_SMART, "Neon");
+  strcpy(aux[9].COR_SMART, "Violeta");
+
+
+  aux[0].CODIGO_SMART=5141;
+  aux[1].CODIGO_SMART=1535;
+  aux[2].CODIGO_SMART=85565;
+  aux[3].CODIGO_SMART=81552;
+  aux[4].CODIGO_SMART=63510;
+  aux[5].CODIGO_SMART=74990;
+  aux[6].CODIGO_SMART=85580;
+  aux[7].CODIGO_SMART=12120;
+  aux[8].CODIGO_SMART=0452;
+  aux[9].CODIGO_SMART=74012;
+
+  aux[0].PRECO_SMART=1400;
+  aux[1].PRECO_SMART=2100;
+  aux[2].PRECO_SMART=3200;
+  aux[3].PRECO_SMART=1300;
+  aux[4].PRECO_SMART=1850;
+  aux[5].PRECO_SMART=1750;
+  aux[6].PRECO_SMART=2305;
+  aux[7].PRECO_SMART=1750;
+  aux[8].PRECO_SMART=1230;
+  aux[9].PRECO_SMART=2650;
+
+  aux[0].UNIDADES_SMART=9602;
+  aux[1].UNIDADES_SMART=8960;
+  aux[2].UNIDADES_SMART=4850;
+  aux[3].UNIDADES_SMART=486;
+  aux[4].UNIDADES_SMART=7903;
+  aux[5].UNIDADES_SMART=12230;
+  aux[6].UNIDADES_SMART=1500;
+  aux[7].UNIDADES_SMART=7850;
+  aux[8].UNIDADES_SMART=300;
+  aux[9].UNIDADES_SMART=120;
+
+  while(Num_Escolhido!=4){
+      printf("\nMENU: ");
+      printf("\n1-Vitrine de Smartphones");
+      printf("\n2-Alterar Dado de Smartphone");
+      printf("\n3-Sair");
+      printf("\nINFOME UMA OPCAO: ");
+      scanf ("%d", &Num_Escolhido);
+
+    switch(Num_Escolhido){
+      case 1:
+    view(aux);
+      break;
+
+
+      case 2:
+          printf("\n\n");
+          printf ("Bem vindo aos serviços de alteracoes de dados, veja os modelos: ");
+          printf ("\n\n");
+     alterar(aux);
+      break;
+
+      case 3:
+    printf ("Saindo..");
+      break;
+
+      default:
+      printf("ERRO!!!");
+    }
+  }
+  return 0;
+}
